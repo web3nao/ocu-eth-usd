@@ -1,4 +1,4 @@
-# OCU-ETH_USD
+# OCU_ETH_USD
 
 subgraph: https://thegraph.com/hosted-service/subgraph/urbanisierung/ocu-eth-usd
 
