@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: OCU_ETH_USD
@@ -17,14 +17,14 @@ dataSources:
         - LogMedianPrice
       abis:
         - name: OCU_ETH_USD
-          file: ./abis/OCU_ETH_USD.json
+          file: OCU_ETH_USD/abis/OCU_ETH_USD.json
       eventHandlers:
         - event: LogMedianPrice(uint256,uint256)
           handler: handleLogMedianPriceEthUsd
       callHandlers:
         - function: kiss(address)
           handler: handleKissEthUsd
-      file: ./src/mapping.ts
+      file: OCU_ETH_USD/OCU_ETH_USD.wasm
   - kind: ethereum
     name: OCU_BTC_USD
     network: mainnet
@@ -40,11 +40,11 @@ dataSources:
         - LogMedianPrice
       abis:
         - name: OCU_BTC_USD
-          file: ./abis/OCU_ETH_USD.json
+          file: OCU_BTC_USD/abis/OCU_ETH_USD.json
       eventHandlers:
         - event: LogMedianPrice(uint256,uint256)
           handler: handleLogMedianPriceBtcUsd
       callHandlers:
         - function: kiss(address)
           handler: handleKissBtcUsd
-      file: ./src/mapping.ts
+      file: OCU_ETH_USD/OCU_ETH_USD.wasm
