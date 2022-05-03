@@ -101,15 +101,6 @@ export class Whitelist extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get address(): string {
-    let value = this.get("address");
-    return value!.toString();
-  }
-
-  set address(value: string) {
-    this.set("address", Value.fromString(value));
-  }
-
   get type(): string {
     let value = this.get("type");
     return value!.toString();
@@ -117,5 +108,14 @@ export class Whitelist extends Entity {
 
   set type(value: string) {
     this.set("type", Value.fromString(value));
+  }
+
+  get kiss(): boolean {
+    let value = this.get("kiss");
+    return value!.toBoolean();
+  }
+
+  set kiss(value: boolean) {
+    this.set("kiss", Value.fromBoolean(value));
   }
 }

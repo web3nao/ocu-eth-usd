@@ -24,6 +24,8 @@ dataSources:
       callHandlers:
         - function: kiss(address)
           handler: handleKissEthUsd
+        - function: diss(address)
+          handler: handleDissEthUsd
       file: OCU_ETH_USD/OCU_ETH_USD.wasm
   - kind: ethereum
     name: OCU_BTC_USD
@@ -47,4 +49,6 @@ dataSources:
       callHandlers:
         - function: kiss(address)
           handler: handleKissBtcUsd
+        - function: diss(address)
+          handler: handleDissBtcUsd
       file: OCU_ETH_USD/OCU_ETH_USD.wasm
