@@ -1,0 +1,14 @@
+type LogMedianPrice @entity {
+  id: ID!
+  val: BigInt! # uint256
+  age: BigInt! # uint256
+}
+
+type LogNote @entity {
+  id: ID!
+  sig: Bytes! # bytes4
+  usr: Bytes! # address
+  arg1: Bytes! # bytes32
+  arg2: Bytes! # bytes32
+  data: Bytes! # bytes
+}
