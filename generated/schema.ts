@@ -70,7 +70,7 @@ export class LogMedianPrice extends Entity {
   }
 }
 
-export class Whitelist extends Entity {
+export class EventCounter extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -78,18 +78,18 @@ export class Whitelist extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save Whitelist entity without an ID");
+    assert(id != null, "Cannot save EventCounter entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type Whitelist must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type EventCounter must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("Whitelist", id.toString(), this);
+      store.set("EventCounter", id.toString(), this);
     }
   }
 
-  static load(id: string): Whitelist | null {
-    return changetype<Whitelist | null>(store.get("Whitelist", id));
+  static load(id: string): EventCounter | null {
+    return changetype<EventCounter | null>(store.get("EventCounter", id));
   }
 
   get id(): string {
@@ -101,21 +101,30 @@ export class Whitelist extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get type(): string {
-    let value = this.get("type");
-    return value!.toString();
+  get count(): i32 {
+    let value = this.get("count");
+    return value!.toI32();
   }
 
-  set type(value: string) {
-    this.set("type", Value.fromString(value));
+  set count(value: i32) {
+    this.set("count", Value.fromI32(value));
   }
 
-  get kiss(): boolean {
-    let value = this.get("kiss");
-    return value!.toBoolean();
+  get first(): BigInt {
+    let value = this.get("first");
+    return value!.toBigInt();
   }
 
-  set kiss(value: boolean) {
-    this.set("kiss", Value.fromBoolean(value));
+  set first(value: BigInt) {
+    this.set("first", Value.fromBigInt(value));
+  }
+
+  get latest(): BigInt {
+    let value = this.get("latest");
+    return value!.toBigInt();
+  }
+
+  set latest(value: BigInt) {
+    this.set("latest", Value.fromBigInt(value));
   }
 }
